@@ -58,6 +58,7 @@ int main()
 	//printCard(deck[0]);
 	card d = convertBitSetToIndex(deck[1], value);
 	printf("%d\n", d);
+	printCard(c);
 	return 0;
 }
 
@@ -70,7 +71,7 @@ void fillDeck(card deck[52])
 	unsigned char preBit = 0;
 
 		for (size_t colour = 0; colour < maxNumColours; colour++)
-		{
+{
 			preBit = shiftBits(&colour, &colorBitOffset, left);
 			for (size_t value = 0; value < maxNumCards; value++)
 			{
@@ -122,7 +123,7 @@ unsigned char convertBitSetToIndex(card* c, cardOptions option)
 	switch (option)
 	{
 		case colour:
-		{
+{
 			return shiftBits(bitSet, colourBitsetOffset, right);
 		}
 		break;
@@ -135,11 +136,11 @@ unsigned char convertBitSetToIndex(card* c, cardOptions option)
 		case value:
 		{
 			return shiftBits(bitSet, valueBitsetOffset, right);
-		}
+}
 		break;
 
 		default:
-		{
+{
 			return invalidCardBitMask;
 		}
 		break;
@@ -170,12 +171,12 @@ unsigned char addBits(unsigned char* c, unsigned char* bits)
 unsigned char shiftBits(unsigned char* s, int* n, bitDirection b)
 {
 	if (b == right)
-	{
+{
 		return (*s) >> (*n);
 
-	}
+}
 	else
-	{
+{
 		return (*s) << (*n);
 	}
 }
